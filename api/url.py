@@ -6,6 +6,6 @@
 
 
 from retuo import app
+from api.view.auth import *
 
-
-#app.add_url_rule('/auth/login',view_func=)
+app.add_url_rule('/auth/wx_login', view_func=wx_login.as_view('wx_login'))

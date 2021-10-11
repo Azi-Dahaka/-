@@ -1,3 +1,8 @@
+"""
+@author:azi
+@file:model.py
+@time:2021/9/26
+"""
 from datetime import datetime
 from utills.core import db
 
@@ -8,8 +13,9 @@ class User(db.Model):
     """
     __tablename__ = 'user'
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    username = db.Column(db.string(20), nullable=False, unique=True)
-    password = db.Column(db.String(20))
+    username = db.Column(db.String(64), nullable=False, unique=True)
+    avatar = db.Column(db.String(200))
+    password = db.Column(db.String(128))
 
 
 class UserLoginMethod(db.Model):
