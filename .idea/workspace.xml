@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bbd7e49-ce3c-44a9-bb58-9043f38f5781" name="Changes" comment="修改了requirements文件">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/url.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/view.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utills/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utills/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+    <list default="true" id="0bbd7e49-ce3c-44a9-bb58-9043f38f5781" name="Changes" comment="完善项目结构">
+      <change afterPath="$PROJECT_DIR$/app/api/view/talk.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/resources/12万对话语料青云库.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/resources/word_segmentation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utills/NLP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/view/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/view/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/view/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/view/talk.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utills/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/view/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/retuo.py" beforeDir="false" afterPath="$PROJECT_DIR$/retuo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utills/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utills/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utills/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utills/weixinAuth.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utills/weixinAuth.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +47,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -62,7 +77,52 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Anaconda3/envs/flask" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\A_Code\retuo\retuo_backend" />
+      <recent name="D:\A_Code\retuo\retuo_backend\app" />
+      <recent name="D:\A_Code\retuo\retuo_backend\resources" />
+      <recent name="D:\A_Code\retuo\retuo_backend\api\view" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Flask server.Flask (retuo.py)">
+    <configuration name="NLP" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="retuo_backend" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/utills" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/utills/NLP.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (retuo.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
+      <module name="retuo_backend" />
+      <option name="target" value="$PROJECT_DIR$/retuo.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="retuo_backend" type="Python.FlaskServer">
       <module name="retuo_backend" />
       <option name="target" value="$PROJECT_DIR$/retuo.py" />
@@ -78,6 +138,12 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flask server.Flask (retuo.py)" />
+        <item itemvalue="Python.NLP" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -97,7 +163,13 @@
       <workItem from="1631948447212" duration="998000" />
       <workItem from="1632107609293" duration="67000" />
       <workItem from="1632639660058" duration="4700000" />
-      <workItem from="1632716445683" duration="3086000" />
+      <workItem from="1632716445683" duration="4895000" />
+      <workItem from="1632722851506" duration="6170000" />
+      <workItem from="1634224186931" duration="1475000" />
+      <workItem from="1635084841580" duration="870000" />
+      <workItem from="1637130848450" duration="596000" />
+      <workItem from="1637758527903" duration="7738000" />
+      <workItem from="1637793450961" duration="8526000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1631870161183</created>
@@ -120,7 +192,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631948674054</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完善项目结构">
+      <created>1632719684863</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1632719684863</updated>
+    </task>
+    <task id="LOCAL-00005" summary="完善项目结构">
+      <created>1632719699339</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1632719699339</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,9 +228,12 @@
     <MESSAGE value="init" />
     <MESSAGE value="测试" />
     <MESSAGE value="修改了requirements文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了requirements文件" />
+    <MESSAGE value="完善项目结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善项目结构" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/retuo_backend$retuo_backend.coverage" NAME="retuo_backend Coverage Results" MODIFIED="1632642717039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/retuo_backend$NLP.coverage" NAME="NLP Coverage Results" MODIFIED="1637763253884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/utills" />
+    <SUITE FILE_PATH="coverage/retuo_backend$retuo_backend.coverage" NAME="retuo_backend Coverage Results" MODIFIED="1637794965498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/retuo_backend$Flask__app_py_.coverage" NAME="Flask (retuo.py) Coverage Results" MODIFIED="1637799509328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
