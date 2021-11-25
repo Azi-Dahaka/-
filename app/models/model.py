@@ -3,7 +3,11 @@
 @file:model.py
 @time:2021/9/26
 """
-from app.utills.core import db
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+import retuo
+
+db = SQLAlchemy(retuo.app)
 
 
 class User(db.Model):
@@ -11,27 +15,35 @@ class User(db.Model):
     用户的模型
     """
     __tablename__ = 'user'
-    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    username = db.Column(db.String(64), nullable=False, unique=True)
-    avatar = db.Column(db.String(200))
-    phone = db.Column(db.String(11), unique=True)
-    password = db.Column(db.String(128))
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True, unique=True)
+    openId = db.Column(db.String(50), nullable=False, unique=True)
+    username = db.Column(db.String(30), nullable=False)
+    avatar = db.Column(db.String(100))
+    # phone = db.Column(db.String(11), unique=True)
+    # password = db.Column(db.String(30))
+    allowCollect = db.Column(db.Boolean)
+
+    def __init__(self, openId, username, avatar):
+        self.openId = openId
+        self.username = username
+        self.avatar = avatar
+        self.allowCollect = False
+
+    def __repr__(self):
+        return "(%s, %s, %s, %s, %s)" % (self.id, self.openId, self.username, self.avatar, self.allowCollect)
 
 
-class UserLoginMethod(db.Model):
+
+class collectedData(db.Model):
     """
-    用户登陆验证表，尝试使用微信登陆
+    用户聊天数据的收集
     """
-    __tablename__ = "user_login_method"
-    # 主键
-    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    user_id = db.Column(db.Integer, nullable=False)
-    # 用户登陆方式，WX微信，P手机
-    login_method = db.Column(db.String(36), nullable=False)
-    # 用户登陆标识，微信ID或手机号
-    identification = db.Column(db.String(36), nullable=False)
-    # 用户登陆通行码，密码或token
-    access_code = db.Column(db.String(36), nullable=True)
+    __tablename__ = 'collectedData'
+    contextTop = db.Column(db.String(50), nullable=False)
+    contextBottom = db.Column(db.String(50), nullable=False)
+
+
+
 
 
 if __name__ == '__main__':

@@ -1,34 +1,44 @@
-# from config import appid,selseid
-# import requests, json, time, random
-from flask import jsonify, request
 from flask.views import MethodView
-from app.utills.weixinAuth import *
 
+import config
+from app.utills.weixinAuth import WXBizDataCrypt
+from flask import jsonify, Flask, request
+from app.models.model import *
+import json, requests
 
 class wx_login(MethodView):
     def post(self):
-        """
-        微信登陆
-        :return: {'code':200/201,msg:"返回信息",data:data} /  {'errcode':-1,'errmsg':"返回信息"}
-        """
-        # 前端获取的临时授权码
-        code = request.args.get('code')
+        data = json.loads(request.get_data().decode('utf-8'))  # 将前端Json数据转为字典
+        # print(data)
+        # data = request.form.get('data').decode('utf-8')
+        appID = config.DevelopmentConfig.appid  # 开发者关于微信小程序的appID
+        appSecret = config.DevelopmentConfig.SECRET_KEY  # 开发者关于微信小程序的appSecret
+        code = data['platCode']  # 前端POST过来的微信临时登录凭证code
+        encryptedData = data['platUserInfoMap']['encryptedData']
+        iv = data['platUserInfoMap']['iv']
+        req_params = {
+            'appid': appID,
+            'secret': appSecret,
+            'js_code': code,
+            'grant_type': 'authorization_code'
+        }
+        wx_login_api = 'https://api.weixin.qq.com/sns/jscode2session'
+        response_data = requests.get(wx_login_api, params=req_params, verify=False)  # 向API发起GET请求
+        resData = response_data.json()
+        # print(resData)
+        openid = resData['openid']  # 得到用户关于当前小程序的OpenID
+        session_key = resData['session_key']  # 得到用户关于当前小程序的会话密钥session_key
 
-        # 参数错误
-        if code is None:
-            return jsonify({'errcode': -1, 'errmsg': "未提交完整参数"})
-        # 获取微信用户授权码
-        access_code = get_access_code(code=code)
-        if access_code is None:
-            return jsonify({'errcode': -2, 'errmsg': "获取微信授权失败"})
+        pc = WXBizDataCrypt(appID, session_key) #对用户信息进行解密
+        userinfo = pc.decrypt(encryptedData, iv) #获得用户信息
+        # print(userinfo)
+        '''
+        通过判断数据库中用户是否存在来确定添加或返回自定义登录态（若用户不存在则添加；若用户存在，返回用户信息）
+        '''
 
-        # 获取微信用户信息
-        wx_user_info = get_userinfo(access_data=access_code)
-        if wx_user_info is None:
-            return jsonify({'errcode': -3, 'errmsg': "获取微信授权失败"})
+        if User.query.filter(User.openId == userinfo['openId'])
 
-        # 验证微信用户信息本平台是否有，
-        data = login_or_register(wx_user_info=wx_user_info)
-        if data is None:
-            return jsonify({'code': 201, 'msg': "注册失败"})
-        return jsonify({'code': 200, 'msg': "成功登录", 'data': data})
+
+
+        return jsonify({"code": 200, "msg": "登录成功", "userinfo": userinfo})
+
