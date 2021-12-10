@@ -43,9 +43,9 @@ Nginx主要有三个作用：**反向代理、负载均衡和动静分离**。
 
 个人觉得挺好用的，图形化的SFTP客户端，同时支持SCP协议，能够在本地与远程计算机间安全的复制文件，而且在远程计算机上进行各种文件操作也很便捷。**ChatBot项目需要使用训练好的机器模型进行聊天内容的生成，用该工具将模型放到服务器端，同时可对服务器端的文件进行便捷操作，用户文件主要包括机器模型以及后端代码**
 
-![image-20211011123130756](C:\Users\24274\AppData\Roaming\Typora\typora-user-images\image-20211011123130756.png)
+![img](https://imglf6.lf127.net/img/ek1BdFFYV3c1VklWcER4TUROU1hUUzU2K3hZTGVUaFZaZ29ZUFNEKzhJc2RBWGdNamxEZS93PT0.png)
 
-![img](file:///C:\Users\24274\AppData\Roaming\Tencent\Users\2427438398\QQ\WinTemp\RichOle\I$Z9S]P2V~NLS%]TWHS1QRJ.png)
+![img](https://imglf5.lf127.net/img/OVlLL0llQWxIaUczUmo2d0pJdWlNdWo3NGJqdnVRZ2t0NmYwQXhQR0IwTk85QkNlSUkxRDlBPT0.png)
 
 #### 2.3 将flask项目部署到服务器上
 
